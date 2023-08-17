@@ -10,7 +10,7 @@ const app = express()
 
 const router = express.Router()
 
-const API_BASE_URL = "https://api.rtt.io/api/v1/json"
+const API_BASE_URL = process.env.API_BASE_URL
 
 router.get("/search/:code", async (req, res) => {
 	try {
@@ -29,6 +29,6 @@ router.get("/search/:code", async (req, res) => {
 	}
 })
 
-app.use("/.netlify/functions/api", router)
+app.use(".netlify/functions/api", router)
 
 module.exports.handler = serverless(app)
