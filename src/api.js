@@ -10,7 +10,7 @@ const app = express()
 
 const router = express.Router()
 
-const API_BASE_URL = process.env.API_BASE_URL
+const API_BASE_URL = "https://api.rtt.io/api/v1/json"
 
 router.get("/search/:code", async (req, res) => {
 	try {
