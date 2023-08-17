@@ -29,20 +29,6 @@ router.get("/search/:code", async (req, res) => {
 	}
 })
 
-router.get("/search/:service", async (req, res) => {
-	try {
-		// get CRS code from station query in URL
-		const stationCode = req.params.code
-
-		// construct URL to make request
-		const apiRes = await needle(`${API_BASE_URL}/search/${service}`, options)
-		const data = apiRes.body
-		res.status(200).json(data)
-	} catch (error) {
-		res.status(500).json({error})
-	}
-})
-
-app.use("/api", router)
+app.use(".netlify/functions/api", router)
 
 module.exports.handler = serverless(app)
