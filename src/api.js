@@ -29,6 +29,26 @@ router.get("/search/:code", async (req, res) => {
 	}
 })
 
+router.get("/service/:serviceid/:year/:month/:date", async (req, res) => {
+	try {
+		// get SERVICE ID, year, month, and date date from in URL
+		const serviceID = req.params.serviceid
+		const year = req.params.year
+		const month = req.params.month
+		const date = req.params.date
+
+		// construct URL to make request
+		const apiRes = await needle(
+			`${API_BASE_URL}/service/${serviceID}/${year}/${month}/${date}`,
+			options
+		)
+		const data = apiRes.body
+		res.status(200).json(data)
+	} catch (error) {
+		res.status(500).json({error})
+	}
+})
+
 app.use("/.netlify/functions/api", router)
 
 module.exports.handler = serverless(app)
