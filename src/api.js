@@ -49,6 +49,6 @@ router.get("/service/:serviceid/:year/:month/:date", async (req, res) => {
 	}
 })
 
-app.use("/api", router)
+app.use("/.netlify/functions/api", router)
 
 module.exports.handler = serverless(app)
