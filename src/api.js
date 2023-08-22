@@ -53,6 +53,6 @@ router.get("/hello", async (req, res) => {
 	res.status(200).json({hello: "hi"})
 })
 
-app.use("/.netlify/functions/api", router)
+app.use("/api/", router)
 
 module.exports.handler = serverless(app)
