@@ -49,10 +49,6 @@ router.get("/service/:serviceid/:year/:month/:date", async (req, res) => {
 	}
 })
 
-router.get("/hello", async (req, res) => {
-	res.status(200).json({hello: "hi"})
-})
-
-app.use("/api/", router)
+app.use("/", router)
 
 module.exports.handler = serverless(app)
