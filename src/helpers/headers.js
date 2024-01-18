@@ -10,7 +10,6 @@ const options = {
 		Authorization: `Basic ${Buffer.from(`${API_USER}:${API_PASS}`).toString(
 			"base64"
 		)}`,
-		"Access-Control-Allow-Origin": "*",
 	},
 }
 
