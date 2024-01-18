@@ -11,12 +11,12 @@ const app = express()
 
 const router = express.Router()
 
-// enable cors
-app.use(
-	cors({
-		origin: "http://localhost:3002/",
-	})
-)
+// // enable cors
+// app.use(
+// 	cors({
+// 		origin: "http://localhost:3002/",
+// 	})
+// )
 
 const API_BASE_URL = process.env.API_BASE_URL
 
